@@ -3,13 +3,18 @@ import random
 def get_user_choice():
     while True:
         user_choice = input("Taş, kağıt yada Makas seç: ").lower()
-        if user_choice in ["Taş","Kağıt","Makas"]:
+        if user_choice in ["taş","kağıt","makas"]:
             return user_choice
         else:
             print("Geçersiz bir seçim yaptınız. Lütfen Taş, Kağıt yada Makas olarak giriniz")
 
 def get_computer_choice():
-    return random.choice(["Taş","Kağıt","Makas"])
+    if random.randint(1, 3) == 1:
+        return "taş"
+    elif random.randint(1, 3) == 2:
+        return "kağıt"
+    else:
+        return "makas"
 
 def determine_winner(user_choice, computer_choice):
     if user_choice == computer_choice:
@@ -39,9 +44,9 @@ def main():
         else:
             print(f"{winner.capitalize()} kazandı")
             
-            if winner == "kullanıcı":
+            if winner == "Kullanıcı":
                 user_score += 1
-            else:
+            elif winner == "Bilgisayar":
                 computer_score += 1
 
         print("\nOyun Bitti")
@@ -52,4 +57,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
