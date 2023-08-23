@@ -18,13 +18,13 @@ def get_computer_choice():
 
 def determine_winner(user_choice, computer_choice):
     if user_choice == computer_choice:
-        return "Berabere"
+        return "berabere"
     elif (user_choice == "taş" and computer_choice == "makas") or \
          (user_choice == "kağıt" and computer_choice == "taş") or \
          (user_choice == "makas" and computer_choice == "kağıt"):
-        return "Kullanıcı"
+        return "kullanıcı"
     else:
-        return "Bilgisayar"
+        return "bilgisayar"
 
 def main():
 
@@ -32,7 +32,6 @@ def main():
     computer_score = 0
 
     while user_score < 3 and computer_score < 3:
-        print(f"\nKullanıcı Puanı: {user_score} - Bilgisayar Puanı: {computer_score}")
         user_choice = get_user_choice()
         computer_choice = get_computer_choice()
 
@@ -44,16 +43,12 @@ def main():
         else:
             print(f"{winner.capitalize()} kazandı")
             
-            if winner == "Kullanıcı":
+            if winner == "kullanıcı":
                 user_score += 1
-            elif winner == "Bilgisayar":
+            elif winner == "bilgisayar":
                 computer_score += 1
 
-        print("\nOyun Bitti")
-        if user_score > computer_score:
-            print("Tebrikler, kullanıcı kazandı")
-        else:
-            print("Üzgünüz, Bilgisayar kazandı")
+        print(f"\nKullanıcı Puanı: {user_score} - Bilgisayar Puanı: {computer_score}")
 
 if __name__ == "__main__":
     main()
